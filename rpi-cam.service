@@ -1,0 +1,10 @@
+[Unit]
+Description=RaspberryPi WebCam using HttpLiveStreaming.
+
+[Service]
+Type=simple
+ExecStart=/opt/illpro/rpi-cam/rpi-cam.sh
+ExecStop=/opt/illpro/rpi-cam/rpi-cam.sh cleanup
+
+[Install]
+WantedBy=multi-user.target
