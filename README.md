@@ -8,7 +8,8 @@ dependency for this project is [`raspivid`][3], which is included in a standard
 #### Install
 
 Open a terminal and `cd` into the same directory that contains this file. Then
-run `make install` as root to copy the files into place.
+run `make install` as root to copy the files into place and enable the systemd
+service.
 
     :$ cd ~/some/path/rpi-cam
     :$ sudo make install
@@ -16,7 +17,8 @@ run `make install` as root to copy the files into place.
 #### Remove
 
 To remove this project follow the same instructions for installing, just change
-the make target to `remove`.
+the make target to `remove`. This will disable the systemd service and remove
+the copied files.
 
     :$ cd ~/some/path/rpi-cam
     :$ sudo make remove
@@ -50,25 +52,24 @@ the easiest thing to do is set them in rpi-cam.service.
 
 
 **`RPICAM_RAMDISK_PATH`**  
-<sup>Where the RAM Disk will be placed on your server. Defaults to 
-`/mnt/rpi-cam-ramdisk`</sup>
+Where the RAM Disk will be placed on your server. Defaults to 
+`/mnt/rpi-cam-ramdisk`
 
 **`RPICAM_RAMDISK_SIZE`**  
-<sup>The size of the RAM Disk, you shouldn't really be changing this unless you
-need to support large HD streams. Defaults to `32M`</sup>
+The size of the RAM Disk, you shouldn't really be changing this unless you
+need to support large HD streams. Defaults to `32M`
 
 **`RPICAM_VIDEO_WIDTH`**  
-<sup>The pixel width of the video stream. Defaults to `720`.</sup>
+The pixel width of the video stream. Defaults to `720`.
 
 **`RPICAM_VIDEO_HEIGHT`**  
-<sup>The pixel height of the video stream. Defaults to `480`.</sup>
+The pixel height of the video stream. Defaults to `480`.
 
 **`RPICAM_VIDEO_FPS`**  
-<sup>The frames per second for the video stream. Defaults to `30`.</sup>
+The frames per second for the video stream. Defaults to `30`.
 
 **`RPICAM_VIDEO_BITRATE`**  
-<sup>The bit rate for the video stream. Defaults to `1150000` bits per 
-second.</sup>
+The bit rate for the video stream. Defaults to `1150000` bits per second.
 
 #### More Details
 
