@@ -23,6 +23,7 @@ install:
 	chown ${OWNER}:${GROUP} ${SERVICE_DIR}${SERVICE}
 	chmod 644 ${SERVICE_DIR}${SERVICE}
 	systemctl daemon-reload
+	systemctl enable rpi-cam
 
 remove:
 	rm -r ${SERVICE_DIR}${SERVICE}
