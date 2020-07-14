@@ -1,6 +1,6 @@
 # RaspberryPi WebCam
 Run an HttpLiveStreaming server on your [Raspberry Pi][1] with
-[Camera Module][2]. Some notable features include html5 video tag support and a
+[Camera Module][2]. Some notable features include html5 video support and a
 RAM disk which will help maximize the life of your Pi's SD card. The one major
 dependency for this project is [`raspivid`][3], which is included in a standard
 [Raspbian][4] installation.
@@ -23,9 +23,10 @@ the make target to `remove`.
 
 #### Hosting
 
-The RAM disk will be created at `/mnt/rpi-cam-ramdisk` and all the necessary
-video stream files will be located inside there. You will want to host this
-directory with your web server (nginx, apache). Here is a simple nginx example:
+The RAM disk will be created at `/mnt/rpi-cam-ramdisk` or where ever you
+configure it to go, all the necessary video stream files will be located inside
+there. You will want to host this directory with your web server (nginx, 
+apache). Here is a simple nginx example:
 
     server {
         listen 80;
@@ -41,6 +42,33 @@ is an example html snippet:
     <video controls="controls" width="720" height="480" autoplay="autoplay" controls playsinline>
         <source src="cam/stream.m3u8" type="application/x-mpegURL" />
     </video>
+
+#### Configuration
+
+You can configure the video stream service with these environment variables,
+the easiest thing to do is set them in rpi-cam.service.
+
+
+**`RPICAM_RAMDISK_PATH`**  
+<sup>Where the RAM Disk will be placed on your server. Defaults to 
+`/mnt/rpi-cam-ramdisk`</sup>
+
+**`RPICAM_RAMDISK_SIZE`**  
+<sup>The size of the RAM Disk, you shouldn't really be changing this unless you
+need to support large HD streams. Defaults to `32M`</sup>
+
+**`RPICAM_VIDEO_WIDTH`**  
+<sup>The pixel width of the video stream. Defaults to `720`.</sup>
+
+**`RPICAM_VIDEO_HEIGHT`**  
+<sup>The pixel height of the video stream. Defaults to `480`.</sup>
+
+**`RPICAM_VIDEO_FPS`**  
+<sup>The frames per second for the video stream. Defaults to `30`.</sup>
+
+**`RPICAM_VIDEO_BITRATE`**  
+<sup>The bit rate for the video stream. Defaults to `1150000` bits per 
+second.</sup>
 
 #### More Details
 
