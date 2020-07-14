@@ -5,6 +5,10 @@ Description=RaspberryPi WebCam using HttpLiveStreaming.
 Type=simple
 ExecStart=/opt/illpro/rpi-cam/rpi-cam.sh
 ExecStop=/opt/illpro/rpi-cam/rpi-cam.sh cleanup
+Environment=RPICAM_VIDEO_WIDTH=720
+Environment=RPICAM_VIDEO_HEIGHT=480
+Environment=RPICAM_VIDEO_FPS=30
+Environment=RPICAM_VIDEO_BITRATE=1150000
 
 [Install]
 WantedBy=multi-user.target

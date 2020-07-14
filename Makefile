@@ -3,7 +3,6 @@ SERVICE_DIR=/etc/systemd/system/
 
 SCRIPT=rpi-cam.sh
 SERVICE=rpi-cam.service
-RAMDISK=/mnt/rpi-cam-ramdisk"
 
 OWNER=root
 GROUP=root
@@ -26,7 +25,7 @@ install:
 	systemctl enable rpi-cam
 
 remove:
+	systemctl disable rpi-cam
 	rm -r ${SERVICE_DIR}${SERVICE}
 	systemctl daemon-reload
-	rm -r ${RAMDISK}
 	rm -r ${INSTALL_DIR}

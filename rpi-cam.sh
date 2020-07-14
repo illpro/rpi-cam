@@ -8,13 +8,18 @@
 # stream. To display the video stream point a html5 video tag at this path:
 # /mnt/rpi-cam-ramdisk/stream.m3u8
 
-RAMDISK="/mnt/rpi-cam-ramdisk"
 RAMDISK_TYPE="tmpfs"
-RAMDISK_SIZE="32M"
-VIDEO_WIDTH="720"
-VIDEO_HEIGHT="420"
-VIDEO_FPS="25"
-VIDEO_BITRATE="1400000"
+
+# You may override any of the default configurations by setting environment
+# variables in the rpi-cam.service file for any of the below variables. You
+# will find some are already set in there to the same defaults as an example.
+
+RAMDISK="${RPICAM_RAMDISK_PATH:-/mnt/rpi-cam-ramdisk}"
+RAMDISK_SIZE="${RPICAM_RAMDISK_SIZE:-32M}"
+VIDEO_WIDTH="${RPICAM_VIDEO_WIDTH:-720}"
+VIDEO_HEIGHT="${RPICAM_VIDEO_HEIGHT:-420}"
+VIDEO_FPS="${RPICAM_VIDEO_FPS:-30}"
+VIDEO_BITRATE="${RPICAM_VIDEO_BITRATE:-1150000}"
 
 if [ ! -d "$RAMDISK" ]; then
     mkdir -p $RAMDISK
