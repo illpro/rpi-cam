@@ -25,6 +25,7 @@ install:
 	systemctl enable rpi-cam
 
 remove:
+	systemctl stop rpi-cam
 	systemctl disable rpi-cam
 	rm -r ${SERVICE_DIR}${SERVICE}
 	systemctl daemon-reload
