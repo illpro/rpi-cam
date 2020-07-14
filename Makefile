@@ -16,7 +16,7 @@ install:
 	mkdir -p ${INSTALL_DIR}
 	cp ${SCRIPT} ${INSTALL_DIR}${SCRIPT}
 	chown ${OWNER}:${GROUP} ${INSTALL_DIR}${SCRIPT}
-	chmod 755 ${SERVICE_DIR}${SERVICE}
+	chmod 755 ${INSTALL_DIR}${SCRIPT}
 
 	cp ${SERVICE} ${SERVICE_DIR}${SERVICE}
 	chown ${OWNER}:${GROUP} ${SERVICE_DIR}${SERVICE}
