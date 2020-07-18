@@ -20,6 +20,7 @@ VIDEO_WIDTH="${RPICAM_VIDEO_WIDTH:-720}"
 VIDEO_HEIGHT="${RPICAM_VIDEO_HEIGHT:-420}"
 VIDEO_FPS="${RPICAM_VIDEO_FPS:-30}"
 VIDEO_BITRATE="${RPICAM_VIDEO_BITRATE:-1150000}"
+LOG_LEVEL="${RPICAM_LOG_LEVEL:=error}"
 
 if [ ! -d "$RAMDISK" ]; then
     mkdir -p $RAMDISK
@@ -41,6 +42,7 @@ start() {
   | ffmpeg -y \
     -i - \
     -an \
+    -loglevel $LOG_LEVEL \
     -c:v copy \
     -map 0:0 \
     -f segment \

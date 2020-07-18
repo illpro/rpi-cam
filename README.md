@@ -71,6 +71,9 @@ The frames per second for the video stream. Defaults to `30`.
 **`RPICAM_VIDEO_BITRATE`**  
 The bit rate for the video stream. Defaults to `1150000` bits per second.
 
+**`RPICAM_LOG_LEVEL`**  
+Log level for the ffmpeg process. Defaults to `error`.
+
 #### More Details
 
 ###### Ring Recording
